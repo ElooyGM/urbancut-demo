@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UrbanCut Barber — Demo</title>
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#f6f3ee,#11110f);--surface:light-dark(#fff,#1b1a17);--text:light-dark(#171613,#f7f4ed);--muted:light-dark(#6d685f,#aaa49a);--line:light-dark(#ded8ce,#34312b);--accent:light-dark(#b88945,#d7a85d)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}#app{min-height:100vh;background-color:var(--bg)}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 6vw;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.08em}.nav{display:flex;gap:26px;color:var(--muted);font-size:14px}.nav a{color:inherit;text-decoration:none}
+.hero{max-width:1150px;margin:auto;padding:82px 6vw 72px;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:.16em;color:var(--accent);font-size:12px;font-weight:800}.hero h1{font-size:clamp(44px,7vw,82px);line-height:.95;margin:14px 0 22px;letter-spacing:-.055em}.hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:590px}.buttons{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}.btn{border:0;border-radius:999px;padding:14px 22px;font-weight:750;cursor:pointer}.primary{background:var(--accent);color:#17120c}.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 20px 60px #00000012}.price-row{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line)}.price-row:last-child{border:0}.service{font-weight:650}.price{font-weight:800}
+.section{max-width:1150px;margin:auto;padding:20px 6vw 80px}.section h2{font-size:34px;letter-spacing:-.03em}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.mini{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}.mini h3{margin:0 0 8px}.mini p{margin:0;color:var(--muted);line-height:1.55}
+footer{padding:30px 6vw;border-top:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.chat{position:fixed;right:24px;bottom:24px;width:330px;max-width:calc(100vw - 32px);background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 55px #00000025;overflow:hidden;display:none}.chat.open{display:block}.chat-head{padding:16px 18px;background:#171613;color:#fff}.chat-head strong{display:block}.chat-head span{font-size:12px;opacity:.7}.messages{height:250px;padding:16px;overflow:auto;background:var(--bg)}.msg{max-width:85%;padding:10px 12px;border-radius:14px;margin-bottom:9px;font-size:14px;line-height:1.4}.bot{background:var(--surface);border:1px solid var(--line)}.user{margin-left:auto;background:var(--accent);color:#17120c}.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chat-form input{min-width:0;flex:1;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:12px;padding:10px}.chat-form button{border:0;border-radius:12px;padding:10px 13px;background:var(--accent);cursor:pointer}.close{float:right;background:none;border:0;color:#fff;cursor:pointer;font-size:18px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:55px}.grid{grid-template-columns:1fr}.nav{display:none}.hero h1{font-size:56px}}
+</style>
+</head>
+<body>
+<div id="app">
+<header><div class="brand">URBANCUT BARBER</div><nav class="nav"><a href="#services">Servicios</a><a href="#info">Horarios</a><a href="#contact">Contacto</a></nav></header>
+<main>
+<section class="hero"><div><div class="eyebrow">Barcelona · Barber shop</div><h1>Tu corte.<br>Tu estilo.</h1><p>Cortes clásicos, skin fades y cuidado de barba en un espacio moderno. Consulta servicios, precios y horarios con nuestro asistente virtual.</p><div class="buttons"><button id="bp-toggle-chat" class="btn primary">Hablar con el asistente</button><button class="btn secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Ver servicios</button></div></div><div class="card" id="services"><div class="eyebrow">Servicios & precios</div><div class="price-row"><span class="service">Classic haircut</span><span class="price">15 €</span></div><div class="price-row"><span class="service">Skin fade</span><span class="price">18 €</span></div><div class="price-row"><span class="service">Beard trim</span><span class="price">10 €</span></div><div class="price-row"><span class="service">Haircut + beard</span><span class="price">25 €</span></div><div class="price-row"><span class="service">Kids haircut</span><span class="price">12 €</span></div></div></section>
+<section class="section" id="info"><h2>Todo lo que necesitas antes de venir.</h2><div class="grid"><div class="mini"><h3>Horarios</h3><p>Lun–Jue 10:00–20:00<br>Vie 10:00–21:00<br>Sáb 09:00–14:00<br>Domingo cerrado</p></div><div class="mini"><h3>Dónde estamos</h3><p>Carrer de la Demo, 25<br>Barcelona</p></div><div class="mini" id="contact"><h3>Reservas</h3><p>Solicita tu cita por WhatsApp al<br><strong>+34 600 000 000</strong></p></div></div></section>
+</main><footer><span>UrbanCut Barber</span><span>Demo comercial · Asistente IA</span></footer>
+</div>
+<script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/09/28/14/20260928140524-IZP9QCR1.js" defer></script>
+<script>
+function openChat(){
+  if(window.botpress && typeof window.botpress.open === 'function'){
+    window.botpress.open()
+    return
+  }
+  if(window.botpress && typeof window.botpress.on === 'function'){
+    window.botpress.on('webchat:initialized', () => window.botpress.open())
+  }
+}
+</script>
+</body></html>
